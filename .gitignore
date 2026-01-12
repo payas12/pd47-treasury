@@ -1,0 +1,32 @@
+# dependencies
+node_modules
+
+# local env variables (CRITICAL SECURITY)
+.env
+.env.local
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# eslint
+.eslintcache
+
+# misc
+.DS_Store
+
+# IDE
+.vscode
+.idea
+
+# Hardhat (Keep repo clean)
+packages/hardhat/artifacts
+packages/hardhat/cache
+packages/hardhat/deployments/localhost
+
+# cli
+dist

@@ -1,0 +1,62 @@
+{
+  "name": "pd47-treasury",
+  "description": "PD-47 Luxury Treasury",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/hardhat",
+      "packages/nextjs"
+    ]
+  },
+  "scripts": {
+    "account": "yarn hardhat:account",
+    "account:import": "yarn workspace pd47-contracts account:import",
+    "account:generate": "yarn workspace pd47-contracts account:generate",
+    "account:reveal-pk": "yarn workspace pd47-contracts account:reveal-pk",
+    "chain": "yarn hardhat:chain",
+    "compile": "yarn hardhat:compile",
+    "deploy": "yarn hardhat:deploy",
+    "fork": "yarn hardhat:fork",
+    "format": "yarn next:format && yarn hardhat:format",
+    "generate": "yarn account:generate",
+    "hardhat:account": "yarn workspace pd47-contracts account",
+    "hardhat:chain": "yarn workspace pd47-contracts chain",
+    "hardhat:check-types": "yarn workspace pd47-contracts check-types",
+    "hardhat:clean": "yarn workspace pd47-contracts clean",
+    "hardhat:compile": "yarn workspace pd47-contracts compile",
+    "hardhat:deploy": "yarn workspace pd47-contracts deploy",
+    "hardhat:flatten": "yarn workspace pd47-contracts flatten",
+    "hardhat:fork": "yarn workspace pd47-contracts fork",
+    "hardhat:format": "yarn workspace pd47-contracts format",
+    "hardhat:generate": "yarn workspace pd47-contracts generate",
+    "hardhat:hardhat-verify": "yarn workspace pd47-contracts hardhat-verify",
+    "hardhat:lint": "yarn workspace pd47-contracts lint",
+    "hardhat:lint-staged": "yarn workspace pd47-contracts lint-staged",
+    "hardhat:test": "yarn workspace pd47-contracts test",
+    "hardhat:verify": "yarn workspace pd47-contracts verify",
+    "lint": "yarn next:lint && yarn hardhat:lint",
+    "next:build": "yarn workspace pd47-frontend build",
+    "next:check-types": "yarn workspace pd47-frontend check-types",
+    "next:format": "yarn workspace pd47-frontend format",
+    "next:lint": "yarn workspace pd47-frontend lint",
+    "next:serve": "yarn workspace pd47-frontend serve",
+    "postinstall": "husky",
+    "precommit": "lint-staged",
+    "start": "yarn workspace pd47-frontend dev",
+    "test": "yarn hardhat:test",
+    "vercel": "yarn workspace pd47-frontend vercel",
+    "vercel:yolo": "yarn workspace pd47-frontend vercel:yolo",
+    "ipfs": "yarn workspace pd47-frontend ipfs",
+    "vercel:login": "yarn workspace pd47-frontend vercel:login",
+    "verify": "yarn hardhat:verify"
+  },
+  "packageManager": "yarn@3.2.3",
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10"
+  },
+  "engines": {
+    "node": ">=20.18.3"
+  }
+}

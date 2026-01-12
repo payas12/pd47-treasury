@@ -1,0 +1,256 @@
+@import "tailwindcss";
+/* 1. IMPORT LUXURY FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap');
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --shadow-center: 0 0 12px -2px rgb(0 0 0 / 0.05);
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  /* ADDING THE LUXURY FONT FAMILY */
+  --font-serif: "Cinzel", serif;
+  --font-sans: "Lato", sans-serif;
+}
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
+
+/* 2. LUXURY LIGHT THEME (The PD-47 Luxury Look) */
+@plugin "daisyui/theme" {
+  name: "light";
+
+  --color-primary: #000000;         /* Deep Black */
+  --color-primary-content: #ffffff; /* White Text */
+  --color-secondary: #1a1a1a;       /* Dark Grey */
+  --color-secondary-content: #ffffff;
+  --color-accent: #000000;          /* Muted Gold Accent */
+  --color-accent-content: #ffffff;
+  --color-neutral: #000000;
+  --color-neutral-content: #ffffff;
+  
+  --color-base-100: #ffffff;        /* Pure White Background */
+  --color-base-200: #fafafa;        /* Off-white for sections */
+  --color-base-300: #f0f0f0;
+  --color-base-content: #000000;    /* Black Text */
+  
+  --color-info: #000000;
+  --color-success: #000000;         /* Minimalist Success */
+  --color-warning: #000000;
+  --color-error: #000000;           /* Deep Red */
+
+  /* SHARP CORNERS = LUXURY */
+  --radius-field: 0rem;
+  --radius-box: 0rem; 
+  --radius-btn: 0rem; 
+  
+  --tt-tailw: 0px;
+
+}
+
+/* 3. LUXURY DARK THEME (The "Night Mode" Look) */
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  --color-primary: #ffffff;
+  --color-primary-content: #000000;
+  --color-secondary: #cccccc;
+  --color-secondary-content: #000000;
+  --color-accent: #000000;
+  --color-accent-content: #ffffff;
+  --color-neutral: #ffffff;
+  --color-neutral-content: #000000;
+  
+  --color-base-100: #000000;        /* Pure Black Background */
+  --color-base-200: #0a0a0a;
+  --color-base-300: #1a1a1a;
+  --color-base-content: #ffffff;
+  
+  --color-info: #ffffff;
+  --color-success: #34eeb6;
+  --color-warning: #ffffff;
+  --color-error: #ffffff;
+
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* GLOBAL TYPOGRAPHY SETTINGS */
+  body {
+    min-height: 100vh;
+    font-family: "Lato", sans-serif; /* Body text is clean */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    font-family: "Cinzel", serif; /* Headings are Fancy */
+    text-transform: uppercase;    /* Luxury uses Uppercase often */
+    letter-spacing: 0.05em;
+  }
+  
+  p {
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+}
+
+:root,
+[data-theme] {
+  background: var(--color-base-100); /* Fixed to base-100 for cleaner look */
+}
+
+/* 4. COMPONENT OVERRIDES */
+
+.btn {
+  @apply shadow-none; 
+  border-radius: 0px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border-width: 1px;
+}
+
+.btn-primary {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+}
+
+/* FIXED: Hover stays BLACK */
+.btn-primary:hover {
+  background-color: #000 !important;
+}
+
+.input, .select, .textarea {
+  border-radius: 0px !important;
+  border: 1px solid #e5e5e5;
+  background-color: transparent;
+  font-family: "Lato", sans-serif;
+}
+
+.input:focus, .select:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.link {
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.link:hover {
+  opacity: 70%;
+}
+
+/* --- NAVBAR & WALLET STYLING --- */
+
+/* 1. Navbar Container -> BLACK BACKGROUND */
+.navbar {
+  background-color: #000000 !important; /* Force Black Background */
+  border-bottom: 1px solid #ffffff;     /* White Line at bottom */
+  box-shadow: none !important;
+  min-height: 5rem;
+  padding: 0 2rem;
+}
+
+/* 2. Navbar Text -> WHITE TEXT */
+.navbar a, .navbar div, .navbar span {
+  font-family: 'Cinzel', serif !important;
+  color: #ffffff !important;            /* FORCE WHITE TEXT */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* 3. THE WALLET BUTTON FIX */
+button[type="button"],
+[data-testid="rk-connect-button"],
+[data-testid="rk-account-button"],
+[data-testid="rk-chain-button"] {
+  border-radius: 0px !important;
+  background-color: #000000 !important; /* Black Background */
+  color: #ffffff !important;            /* White Text */
+  border: 1px solid #ffffff !important; /* White Border */
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: none !important;
+}
+
+/* 4. Hover State - STAY BLACK */
+button[type="button"]:hover,
+[data-testid="rk-connect-button"]:hover,
+[data-testid="rk-account-button"]:hover,
+[data-testid="rk-chain-button"]:hover {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 5. Force the internal text spans to obey */
+[data-testid="rk-account-button"] span,
+[data-testid="rk-chain-button"] span {
+  color: inherit !important;
+}
+
+/* --- FIX WALLET DROPDOWN --- */
+
+.navbar .btn-secondary, 
+.navbar summary {
+  background-color: #000000 !important; 
+  color: #ffffff !important;            
+  border: 1px solid #ffffff !important; 
+  border-radius: 0px !important;        
+}
+
+/* Ensure it stays BLACK when you hover over it */
+.navbar .btn-secondary:hover, 
+.navbar summary:hover {
+  background-color: #000000 !important; 
+  color: #ffffff !important;            
+  border-color: #ffffff !important;
+}
+
+/* Force the SVG icon to stay white */
+.navbar svg {
+    stroke: #ffffff !important;
+    fill: none !important;
+    color: #ffffff !important;
+}
+
+/* Fix the dropdown menu that appears when you click it */
+.dropdown-content, .menu {
+  background-color: #000000 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 0px !important;
+}
+/* Ensure dropdown text is white */
+.dropdown-content a, .menu a {
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .navbar {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+
+[data-theme="dark"] .navbar a,
+[data-theme="dark"] .navbar div,
+[data-theme="dark"] .navbar span {
+  color: #ffffff !important;
+}
