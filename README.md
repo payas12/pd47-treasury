@@ -15,7 +15,8 @@
 - *Built using Scaffold-ETH 2*
 
 ## 🎥 Demo
-[LINK TO YOUR YOUTUBE VIDEO HERE]
+[https://youtu.be/rUpqNLjUuus]
+https://youtu.be/rUpqNLjUuus
 
 ## 📦 How to Run
 
